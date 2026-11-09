@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Charlotte App – Mac Setup Guide</title>
+<style>
+  @page { size: A4; margin: 22mm 20mm; }
+  body { font-family: -apple-system, "Segoe UI", Helvetica, Arial, sans-serif; color: #111; line-height: 1.5; font-size: 11.5pt; }
+  h1 { font-size: 22pt; margin: 0 0 4px; }
+  .sub { color: #555; margin: 0 0 22px; }
+  ol { padding-left: 22px; }
+  ol > li { margin-bottom: 14px; }
+  ul { margin: 6px 0 0; padding-left: 20px; }
+  li li { margin-bottom: 4px; }
+  code, pre { font-family: Consolas, Menlo, monospace; background: #f1f1f1; border-radius: 4px; }
+  code { padding: 1px 5px; font-size: 10.5pt; }
+  pre { padding: 10px 12px; font-size: 10pt; white-space: pre-wrap; word-break: break-all; margin: 8px 0; }
+</style>
+</head>
+<body>
+<h1>Charlotte App – Mac Setup Guide</h1>
+<p class="sub">One-time setup on a Mac. Takes about 10–15 minutes.</p>
+
+<ol>
+  <li><b>GitHub account:</b> You need one. Accept the invitation to the repository (check your e-mail).</li>
+  <li><b>Open Terminal:</b> Press Cmd+Space, type "Terminal", press Enter.</li>
+  <li><b>Run the setup script:</b>
+<pre>bash ~/Downloads/setup-mac.sh https://github.com/henridecker/Charlotte-Design-Project.git</pre>
+    If the file is stored somewhere else, adjust the path. Alternatively, give the file to your Claude and let it run the script.</li>
+  <li><b>While the script runs:</b>
+    <ul>
+      <li>It asks for your <b>Mac password</b>. Nothing appears while you type – that is normal. Press Enter afterwards.</li>
+      <li>A dialog for the <b>Xcode Command Line Tools</b> may open. Confirm it and wait until the installation has finished.</li>
+      <li>During <code>git clone</code> you may be asked to <b>sign in to GitHub</b>. This requires a Personal Access Token; a normal password no longer works.</li>
+      <li>The script only installs what is missing: Homebrew, git, git-lfs, Node.js and pnpm. Then it clones the project to <code>~/Charlotte-App</code> and installs the dependencies.</li>
+    </ul>
+  </li>
+  <li><b>Start the app:</b> In Finder, open the folder <code>Charlotte-App</code> and double-click <code>start.command</code>. The browser opens automatically.
+    <ul>
+      <li>The first time, macOS may block the file. In that case: right-click → "Open" → confirm.</li>
+    </ul>
+  </li>
+  <li><b>Quit the app:</b> Close the Terminal window.</li>
+</ol>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Charlotte App</title>
+    <link rel="stylesheet" href="./src/style.css" />
+  </head>
+  <body>
+    <div id="app">
+      <h1 class="title">FIND YOUR PATH OR NOT</h1>
+      <div id="stage-wrap">
+        <div id="stage"></div>
+      </div>
+      <p class="credit">made by Charlotte Grant &amp; Henri Decker</p>
+      <p class="hint">W A S D / Arrow keys = move &nbsp;·&nbsp; Enter = open the area next to you &nbsp;·&nbsp; R = reset map</p>
+    </div>
+
+    <div id="overlay" hidden>
+      <video id="video" playsinline></video>
+      <div id="missing" hidden></div>
+    </div>
+
+    <div id="dialog" hidden>
+      <p id="dialog-text"></p>
+      <small>Press Enter</small>
+    </div>
+
+    <div id="countdown" hidden></div>
+
+    <div id="done" hidden>THE END<br /><small>Press R to play again</small></div>
+
+    <script type="module" src="./src/main.js"></script>
+  </body>
+</html>

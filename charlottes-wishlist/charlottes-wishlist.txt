@@ -1,0 +1,86 @@
+CHARLOTTE'S WISHLIST
+====================
+
+Write here what you want changed. Just add your wishes below, one after the other.
+Delete nothing that is already here, only add (so nothing gets lost).
+Wishes that Henri has finished are marked with [DONE date] - they stay here as a record.
+
+HOW TO ADD IMAGES
+-----------------
+1. Copy your image (jpg, png, ...) into the folder "images" next to this file.
+2. Write the file name in your wish, like this:  (image: my-sketch.png)
+
+EXAMPLE
+-------
+Wish 1: Make the red cursor a bit smaller. (image: cursor-idea.png)
+
+
+YOUR WISHES
+-----------
+
+Wish 1: [DONE 2026-11-04] title => FIND YOUR PATH OR NOT 
+
+
+Wish 2: [DONE 2026-11-04] when going to box 4 if the player has already been playing and other boxes have disappeared and the decide to go to box 4 and not wait till the timer runs out, the game should completely start over as if you had pressed R.
+
+
+Wish 3: [DONE 2026-11-05] box 1 => name: Breakdown, enter=> animation, after animation message comes up with message: Try all options but asking people can help
+
+Wish 4: [DONE 2026-11-05] box 2 => name: Ask for help, enter=> does nothing, I want it to be able to push the box 
+It's useful if you push it towards the window box number 8. This will give you the option to go back through the door only if all the other boxes are gone 
+
+Wish 5: [DONE 2026-11-05] box3 => Make a key, enter=> message shows up: YOU CAN'T MAKE A KEY OUTSIDE AND ALONE THAT'S SILLY.
+
+Wish 6: [DONE 2026-11-05] box 5 => heart symbol enter=> timer start counting 30 seconds if you don't finish the game in 30 seconds the game restarts
+
+Wish 7: [DONE 2026-11-05] box 6 => name: Anger enter=> nothing happens you get rid of this box by using the hammer in box 11
+
+Wish 8: [DONE 2026-11-05] box 7 => Door (can you make the box smaller please) this is where the character (red square) comes out of when the game starts.  This is the way the red square leaves the game when all he boxes have gone away and the ask of help and window animation has finished 
+
+Wish 9: [DONE 2026-11-05] box 8 => name=> OPEN WINDOW enter=> message come up, WINDOW TOO SMALL TO ENTER, SOMEONE YELLED AT YOU.
+
+Wish 10: [DONE 2026-11-05] box 9 => name=> MAP  entre=> animation, message at the end=> WHERE ARE YOU GOING YOU DON'T KNOW WHERE YOU'RE GOING 
+
+Wish 11: [DONE 2026-11-05] box 10=> name=> TRY AGAIN, enter=> starts the game from the beginning, the only way to make it go away is to push it out of screen. Symbol: ring/retsart symbol
+
+Wish 12: [DONE 2026-11-05] box 11=> name=> HAMMER,  image of hammer, when you press enter a brown square appears next to red square (our character). To use it/ get rid of the brown square you use it to break box 6.  But the game will restart if you use the hammer on any other box.
+
+
+NOTES FROM HENRI (2026-11-05)
+---------------------------------
+Wishes 3-12 are in the game. Where the wish was not 100% clear, I decided like this:
+- Box 1, 3 and 9 disappear after their message. Box 5 (heart) disappears when the 30 second countdown starts.
+- The countdown is paused while a video or message is open. After it reaches 0 the game restarts.
+- Box 2 (ASK FOR HELP): when it is pushed into the OPEN WINDOW box, the 'ask for help' animation plays (video 2.mp4). Afterwards both boxes disappear.
+- The door (box 7) blinks when the red square may leave: all other boxes are gone and the help animation is finished. Press Enter at the door.
+- The hammer (box 11) disappears when you take it. Enter next to box 6 breaks it. Enter next to any other box restarts the game.
+- Videos needed: 1.mp4 (Breakdown), 2.mp4 (ask for help + window), 9.mp4 (map). See public/videos/README.txt.
+- If something should work differently, just write it as a new wish.
+
+Wish 13: [DONE 2026-11-09] add asset1.png to box 1 
+Wish 14: [DONE 2026-11-09] add asset2.png to box 2
+Wish 15: [DONE 2026-11-09] add asset3.png to box 3
+Wish 16: [DONE 2026-11-09] add asset4.png to box 4
+Wish 17: [DONE 2026-11-09] add asset5.png to box 5
+Wish 18: [DONE 2026-11-09] add asset6.png to box 6
+Wish 19: [DONE 2026-11-09] add asset8.png to box 8
+Wish 20: [DONE 2026-11-09] add asset9.png to box 9
+Wish 21: [DONE 2026-11-09] add asset10.png to box 10
+Wish 22: [DONE 2026-11-09] add asset11.png to box 11
+
+Wish 23: [DONE 2026-11-09] add asset7.png to box 7 but I don't want the door to have a white outline 
+
+Wish 24: [DONE 2026-11-09] take off the numbers from the boxes
+
+Wish 25: [DONE 2026-11-09] make the background black and lines white 
+
+wish 26: [DONE 2026-11-09] keep the text in each box but make it smaller so the asset is the biggest thing
+
+
+NOTES FROM HENRI (2026-11-09)
+---------------------------------
+Wishes 13-26 are in the game:
+- The pictures are copies of your asset1-11.png, made smaller for the web (they live in public/assets/, your originals stay here).
+- Background is the dark grey from your screenshot (#262626), lines and text are white. Easy to change at the top of src/style.css.
+- The door has no outline. The numbers are hidden - press N in the game to show them (useful to know which video belongs to which box).
+- The hand (box 4) sits lower in its box, like in your screenshot.
