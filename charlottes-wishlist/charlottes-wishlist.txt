@@ -86,3 +86,13 @@ Wishes 13-26 are in the game:
 - The hand (box 4) sits lower in its box, like in your screenshot.
 
 Wish 27: put video names sequence01.mp4 before the start of the game. 
+
+Wish 28: for the box with the map I don't want it to go to a video before it shows the message I want the message be full screen .
+
+Wish 29: for all the pop up messages I want the messages to be full screen instead of a pop up at the bottom of the screen.
+
+Wish 30: make all the pop up messages full screen and in red
+
+Wish 31: when you press enter on the breakdown square I want the video called cry emoji.mp4 to play full screen.
+
+Wish 32: when you press enter on the heart square message shows up full screen that says, hurry up, the door will never open again if you don't leave in the next 30 seconds.
