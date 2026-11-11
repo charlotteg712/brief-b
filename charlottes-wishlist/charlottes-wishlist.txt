@@ -84,3 +84,5 @@ Wishes 13-26 are in the game:
 - Background is the dark grey from your screenshot (#262626), lines and text are white. Easy to change at the top of src/style.css.
 - The door has no outline. The numbers are hidden - press N in the game to show them (useful to know which video belongs to which box).
 - The hand (box 4) sits lower in its box, like in your screenshot.
+
+Wish 27: put video names sequence01.mp4 before the start of the game. 

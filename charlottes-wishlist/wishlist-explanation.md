@@ -24,7 +24,7 @@ Open the Terminal (Cmd+Space, type "Terminal", press Enter).
 **1. Go to the project folder**
 
 ```bash
-cd ~/Desktop/Charlotte-App
+cd ~/Desktop/brief-b
 ```
 
 **2. Get the latest version first** (only needed before you start editing)
