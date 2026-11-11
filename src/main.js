@@ -15,18 +15,19 @@ import '@fontsource/press-start-2p/400.css';
 //   Every box shows the picture public/assets/<n>.png
 // ---------------------------------------------------------------------------
 const AREAS = [
-  { n: 1, label: 'Breakdown', x: 19, y: 57, w: 220, h: 176, video: true,
+  { n: 1, label: 'Breakdown', x: 19, y: 57, w: 220, h: 176, video: true, videoFile: 'cry-emoji',
     message: 'Try all options but asking people can help', removes: true },
   { n: 2, label: 'ASK FOR HELP', x: 20, y: 246, w: 220, h: 177, pushable: true, helpTarget: 8 },
   { n: 3, label: 'Make a key', x: 22, y: 446, w: 220, h: 231,
     message: "YOU CAN'T MAKE A KEY OUTSIDE AND ALONE THAT'S SILLY.", removes: true },
   { n: 4, label: 'sitting and waiting', x: 270, y: 60, w: 225, h: 616, timer: 20, assetPos: '50% 75%' },
-  { n: 5, label: '', x: 522, y: 55, w: 181, h: 176, action: 'countdown' },
+  { n: 5, label: '', x: 522, y: 55, w: 181, h: 176, action: 'countdown',
+    message: "HURRY UP, THE DOOR WILL NEVER OPEN AGAIN IF YOU DON'T LEAVE IN THE NEXT 30 SECONDS." },
   { n: 6, label: 'ANGER', x: 523, y: 244, w: 180, h: 177 }, // only the hammer removes it
   { n: 7, label: 'DOOR', x: 758, y: 60, w: 240, h: 340, noFrame: true, action: 'door' },
   { n: 8, label: 'OPEN WINDOW', x: 525, y: 470, w: 874, h: 205,
     message: "WINDOW TOO SMALL TO ENTER, SOMEONE YELLED AT YOU." },
-  { n: 9, label: 'MAP', x: 1049, y: 42, w: 336, h: 381, video: true,
+  { n: 9, label: 'MAP', x: 1049, y: 42, w: 336, h: 381, video: true, messageFirst: true,
     message: "WHERE ARE YOU GOING YOU DON'T KNOW WHERE YOU'RE GOING", removes: true },
   { n: 10, label: 'TRY AGAIN', x: 1448, y: 39, w: 220, h: 239,
     action: 'reset', pushable: true, canExit: true },
@@ -200,6 +201,10 @@ window.addEventListener('keydown', (e) => {
   }
   if (playing) {
     if (k === 'escape') closeVideo(false);
+    else if (k === 'enter' && !e.repeat && playing.def.n === 'intro') {
+      if (video.hidden && video.src) { missing.hidden = true; video.hidden = false; video.play().catch(() => {}); }
+      else closeVideo(true); // skip the intro
+    }
     else if (k === 'enter' && !e.repeat && !missing.hidden && import.meta.env.DEV) closeVideo(true); // dev: skip a missing video
     return;
   }
@@ -258,12 +263,15 @@ function activate(s) {
     current = null;
     s.timeout = setTimeout(() => finishArea(s), d.timer * 1000);
   } else if (d.video) {
-    playVideo(s, () => (d.message ? showDialog(d.message, after) : after()));
+    const file = d.videoFile || d.n;
+    if (d.messageFirst && d.message) showDialog(d.message, () => playVideo(s, after, file));
+    else playVideo(s, () => (d.message ? showDialog(d.message, after) : after()), file);
+  } else if (d.action === 'countdown') {
+    // the heart: full-screen warning first, the countdown starts when it is closed
+    const start = () => { countdown = COUNTDOWN; finishArea(s); };
+    if (d.message) showDialog(d.message, start); else start();
   } else if (d.message) {
     showDialog(d.message, after);
-  } else if (d.action === 'countdown') {
-    countdown = COUNTDOWN;
-    finishArea(s);
   } else if (d.action === 'reset') {
     resetMap();
   } else if (d.action === 'hammer') {
@@ -357,15 +365,17 @@ function closeDialog() {
 }
 
 // ---------- Video ----------
-function playVideo(s, onDone) {
+let playingFile = '';
+function playVideo(s, onDone, file) {
   if (playing) return;
   playing = s;
+  playingFile = file || s.def.n;
   playDone = onDone;
   keys.clear();
   missing.hidden = true;
   overlay.hidden = false;
   video.hidden = false;
-  video.src = `${import.meta.env.BASE_URL}videos/${s.def.n}.mp4`;
+  video.src = `${import.meta.env.BASE_URL}videos/${playingFile}.mp4`;
   video.play().catch(() => {});
 }
 
@@ -374,7 +384,7 @@ video.addEventListener('error', () => {
   if (!playing) return;
   video.hidden = true;
   missing.hidden = false;
-  missing.innerHTML = `Video not found:<br><b>public/videos/${playing.def.n}.mp4</b><br><small>Esc = back${import.meta.env.DEV ? ' · Enter = mark as watched (dev only)' : ''}</small>`;
+  missing.innerHTML = `Video not found:<br><b>public/videos/${playingFile}.mp4</b><br><small>Esc = back${import.meta.env.DEV ? ' · Enter = mark as watched (dev only)' : ''}</small>`;
 });
 
 function closeVideo(finished) {
@@ -455,3 +465,8 @@ function loop(now) {
 }
 emerge();
 requestAnimationFrame(loop);
+
+// ---------- Intro video (before the game starts) ----------
+playVideo({ def: { n: 'intro' } }, () => {}, 'sequence01');
+// browsers may block autoplay with sound: then the video waits for Enter
+video.play().catch(() => { video.hidden = true; missing.hidden = false; missing.textContent = 'Press Enter to start'; });
