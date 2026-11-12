@@ -85,22 +85,35 @@ Wishes 13-26 are in the game:
 - The door has no outline. The numbers are hidden - press N in the game to show them (useful to know which video belongs to which box).
 - The hand (box 4) sits lower in its box, like in your screenshot.
 
-Wish 27: put video names sequence01.mp4 before the start of the game. 
+Wish 27: [DONE 2026-11-12] put video names sequence01.mp4 before the start of the game. 
 
-Wish 28: for the box with the map I don't want it to go to a video before it shows the message I want the message be full screen .
+Wish 28: [DONE 2026-11-12] for the box with the map I don't want it to go to a video before it shows the message I want the message be full screen .
 
-Wish 29: for all the pop up messages I want the messages to be full screen instead of a pop up at the bottom of the screen.
+Wish 29: [DONE 2026-11-12] for all the pop up messages I want the messages to be full screen instead of a pop up at the bottom of the screen.
 
-Wish 30: make all the pop up messages full screen and in red
+Wish 30: [DONE 2026-11-12] make all the pop up messages full screen and in red
 
-Wish 31: when you press enter on the breakdown square I want the video called cry emoji.mp4 to play full screen.
+Wish 31: [DONE 2026-11-12] when you press enter on the breakdown square I want the video called cry emoji.mp4 to play full screen.
 
-Wish 32: when you press enter on the heart square message shows up full screen that says, hurry up, the door will never open again if you don't leave in the next 30 seconds.
+Wish 32: [DONE 2026-11-12] when you press enter on the heart square message shows up full screen that says, hurry up, the door will never open again if you don't leave in the next 30 seconds.
 
-Wish 33: message in map box should be changed to => WHERE ARE YOU GOING? YOU DON'T KNOW WHERE TO GO.
+Wish 33: [DONE 2026-11-12] message in map box should be changed to => WHERE ARE YOU GOING? YOU DON'T KNOW WHERE TO GO.
 
-Wish 34: after the message in the map box I do not ant a video after, after message go directly back to the main page.
+Wish 34: [DONE 2026-11-12] after the message in the map box I do not ant a video after, after message go directly back to the main page.
 
-Wish 35: get rid of the made by Charlotte and henri at the bottom 
+Wish 35: [DONE 2026-11-12] get rid of the made by Charlotte and henri at the bottom 
 
-Wish 36: when the ask for help and open window boxes come together and pressed anterior, I don't want a video there, I want a pop up screen with the message=> SOMEONE INSIDE HELPED YOU, YOU CAN TRY THE DOOR AGAIN.
+Wish 36: [DONE 2026-11-12] when the ask for help and open window boxes come together and pressed anterior, I don't want a video there, I want a pop up screen with the message=> SOMEONE INSIDE HELPED YOU, YOU CAN TRY THE DOOR AGAIN.
+
+
+NOTES FROM HENRI (2026-11-12)
+---------------------------------
+Wishes 27-36 are in the game:
+- 27: Sequence 01.mp4 plays full screen when the game opens (Esc or Enter skips it; if the browser blocks autoplay it says "Press Enter to start").
+- 28+34: MAP shows only the full-screen message, no video. After Enter you are back on the map and the box disappears.
+- 29+30: all messages are full screen, black background, red text. Enter closes them.
+- 31: BREAKDOWN plays cry emoji.mp4 full screen, then the message "Try all options..." follows.
+- 32: the heart shows the full-screen "hurry up..." message first, the 30 second countdown starts when you close it.
+- 33: map message is now "WHERE ARE YOU GOING? YOU DON'T KNOW WHERE TO GO."
+- 35: the "made by Charlotte & Henri" line is gone.
+- 36: ASK FOR HELP pushed into OPEN WINDOW now shows the full-screen message "SOMEONE INSIDE HELPED YOU, YOU CAN TRY THE DOOR AGAIN." instead of a video. Then both boxes disappear and the door blinks.
