@@ -27,8 +27,7 @@ const AREAS = [
   { n: 7, label: 'DOOR', x: 758, y: 60, w: 240, h: 340, noFrame: true, action: 'door' },
   { n: 8, label: 'OPEN WINDOW', x: 525, y: 470, w: 874, h: 205,
     message: "WINDOW TOO SMALL TO ENTER, SOMEONE YELLED AT YOU." },
-  { n: 9, label: 'MAP', x: 1049, y: 42, w: 336, h: 381, video: true, messageFirst: true,
-    message: "WHERE ARE YOU GOING YOU DON'T KNOW WHERE YOU'RE GOING", removes: true },
+  { n: 9, label: 'MAP', x: 1049, y: 42, w: 336, h: 381, message: "WHERE ARE YOU GOING? YOU DON'T KNOW WHERE TO GO.", removes: true },
   { n: 10, label: 'TRY AGAIN', x: 1448, y: 39, w: 220, h: 239,
     action: 'reset', pushable: true, canExit: true },
   { n: 11, label: 'HAMMER', x: 1447, y: 304, w: 224, h: 368, action: 'hammer' },
@@ -264,8 +263,7 @@ function activate(s) {
     s.timeout = setTimeout(() => finishArea(s), d.timer * 1000);
   } else if (d.video) {
     const file = d.videoFile || d.n;
-    if (d.messageFirst && d.message) showDialog(d.message, () => playVideo(s, after, file));
-    else playVideo(s, () => (d.message ? showDialog(d.message, after) : after()), file);
+    playVideo(s, () => (d.message ? showDialog(d.message, after) : after()), file);
   } else if (d.action === 'countdown') {
     // the heart: full-screen warning first, the countdown starts when it is closed
     const start = () => { countdown = COUNTDOWN; finishArea(s); };
@@ -299,7 +297,8 @@ function hit(s) {
 
 function startHelp(s) {
   if (locked() || s.done) return;
-  playVideo(s, () => {
+  // no video: a full-screen message, afterwards both boxes disappear
+  showDialog('SOMEONE INSIDE HELPED YOU, YOU CAN TRY THE DOOR AGAIN.', () => {
     finishArea(s);
     const win = state.get(s.def.helpTarget);
     if (win) finishArea(win);
